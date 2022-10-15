@@ -1,4 +1,4 @@
-# Image-resizedr Desktop Application 
+# Image-Resizer Desktop Application 
 
 <p float="left">
   <img src="https://user-images.githubusercontent.com/81632171/195977590-5b2efda2-cb10-4ce7-8287-81d41b07335c.png" width="500" />
