@@ -25,12 +25,14 @@ function loadImage(e) {
 	filename.innerText = file.name;
 	outputPath.innerText = path.join(os.homedir(), "imageresizer");
 }
-const width = widthInput.value;
-const height = heightInput.value;
 
 // handle image submit
 function sendImage(e) {
 	e.preventDefault();
+	const width = widthInput.value;
+	const height = heightInput.value;
+	const imgPath = img.files[0].path;
+
 	if (!img.files[0]) {
 		customAlert("Please Upload an Image", "error");
 		return;
@@ -39,6 +41,8 @@ function sendImage(e) {
 		customAlert("Height and width cannot be empty", "error");
 		return;
 	}
+	// Send to Main.js using ipc renderer (Built in Electron)
+	ipcRenderer.send("image:resize", { imgPath, width, height });
 }
 
 //  Display Uploaded Image on the screen
